@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:request-config name="HTTP_Request_configuration" doc:name="HTTP Request configuration" doc:id="805fd37f-493c-49ad-b08c-8b6f9a874d56" >
+		<http:request-connection protocol="HTTPS" />
+	</http:request-config>
+	<flow name="shopautoFlow" doc:id="20dbd754-203a-4b8d-adc2-20c446e4f591" >
+		<http:request method="GET" doc:name="Request" doc:id="bdffb265-3318-4c2b-9dc3-e6681fe2ba80" config-ref="HTTP_Request_configuration" path="#[payload]"/>
+		<logger level="INFO" doc:name="Logger" doc:id="78eae68f-fa71-4bf6-ada5-d7ec3c79b2b5" />
+	</flow>
+</mule>
